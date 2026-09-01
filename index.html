@@ -110,12 +110,13 @@
   .hero-title{
     font-family:var(--ff-display);
     font-weight:400;
-    font-size:clamp(3rem, 10vw, 5.4rem);
+    font-size:clamp(2.2rem, 11vw, 5.4rem);
     line-height:0.92;
     letter-spacing:0.02em;
     text-transform:uppercase;
     color:var(--white);
     text-shadow:0 0 30px rgba(95,232,224,0.25);
+    white-space:nowrap;
   }
 
   .hero-feat{
@@ -127,6 +128,8 @@
     letter-spacing:0.05em;
     text-transform:uppercase;
   }
+
+  .hero-feat .nowrap{white-space:nowrap;}
 
   .hero-meta{
     margin-top:18px;
@@ -197,10 +200,10 @@
   .section-head h2{
     font-family:var(--ff-display);
     font-weight:400;
-    font-size:clamp(1.9rem, 4.5vw, 2.5rem);
+    font-size:clamp(1.5rem, 6.2vw, 2.5rem);
     letter-spacing:0.02em;
     text-transform:uppercase;
-    max-width:20ch;
+    white-space:nowrap;
   }
 
   /* ---------- Bio ---------- */
@@ -229,6 +232,12 @@
 
   .bio-copy p:last-child{margin-bottom:0;}
 
+  .track-copy p{
+    color:var(--white-dim);
+    font-size:1rem;
+    max-width:68ch;
+  }
+
   .fact-strip{
     margin-top:28px;
     display:flex;
@@ -250,10 +259,17 @@
     display:flex;
     align-items:center;
     justify-content:space-between;
-    flex-wrap:wrap;
     gap:24px;
-    padding:26px 0;
+    padding:26px 4px;
     border-bottom:1px solid var(--line);
+    text-decoration:none;
+    color:inherit;
+    transition:background 0.15s ease, padding-left 0.15s ease;
+  }
+
+  .listen-row:hover{
+    background:rgba(95,232,224,0.04);
+    padding-left:14px;
   }
 
   .listen-row:last-child{border-bottom:none;}
@@ -269,6 +285,19 @@
     text-transform:uppercase;
   }
 
+  .listen-arrow{
+    flex-shrink:0;
+    width:18px;
+    height:18px;
+    color:var(--white-dim);
+    transition:transform 0.15s ease, color 0.15s ease;
+  }
+
+  .listen-row:hover .listen-arrow{
+    color:var(--cyan-soft);
+    transform:translateX(4px);
+  }
+
   .listen-label svg{width:22px;height:22px;flex-shrink:0;color:var(--cyan);}
 
   .listen-sub{
@@ -280,40 +309,33 @@
     margin-top:2px;
   }
 
-  .link-arrow{
-    font-size:0.88rem;
-    font-weight:700;
-    color:var(--cyan-soft);
-    text-decoration:none;
-    border-bottom:1px solid transparent;
-  }
-
-  .link-arrow:hover{border-color:var(--cyan-soft);}
-
   /* ---------- Connect ---------- */
-  .connect-grid{
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:14px;
+  .connect-list{
+    display:flex;
+    flex-direction:column;
   }
 
-  .connect-card{
-    border:1px solid var(--line);
-    border-radius:4px;
-    padding:22px 16px;
+  .connect-item{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:20px 4px;
+    border-bottom:1px solid var(--line);
     text-decoration:none;
-    text-align:center;
-    transition:border-color 0.15s ease, background 0.15s ease;
+    color:var(--white);
+    transition:padding-left 0.15s ease, color 0.15s ease;
   }
 
-  .connect-card:hover{
-    border-color:var(--cyan);
-    background:rgba(95,232,224,0.04);
+  .connect-item:first-child{border-top:1px solid var(--line);}
+
+  .connect-item:hover{
+    padding-left:14px;
+    color:var(--cyan-soft);
   }
 
-  .connect-card svg{width:24px;height:24px;margin:0 auto 10px;color:var(--white);}
+  .connect-item svg{width:22px;height:22px;flex-shrink:0;color:currentColor;}
 
-  .connect-card span{font-size:0.85rem;font-weight:600;}
+  .connect-item span{font-size:1rem;font-weight:600;}
 
   /* ---------- Footer ---------- */
   footer{
@@ -336,7 +358,6 @@
   @media (max-width:760px){
     .bio{grid-template-columns:1fr;}
     .bio-photo{max-height:340px;}
-    .connect-grid{grid-template-columns:repeat(2, 1fr);}
     .listen-row{flex-direction:column;align-items:flex-start;}
   }
 
@@ -358,7 +379,7 @@
   <div class="wrap hero-text">
     <p class="eyebrow">Nuevo estreno</p>
     <h1 class="hero-title">Eres Grandioso</h1>
-    <p class="hero-feat">Erbin Bass ft. Solaria</p>
+    <p class="hero-feat"><span class="nowrap">Erbin Bass</span> ft. Solaria</p>
     <div class="hero-meta">
       <span>Electro House Progressive</span>
       <span>Viernes 4 de septiembre de 2026 · 19:00</span>
@@ -375,6 +396,22 @@
   </div>
 </header>
 
+<section id="track">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Sobre el track</h2>
+    </div>
+    <div class="track-copy">
+      <p>"Eres Grandioso" es el nuevo sencillo de Erbin Bass, un track de Electro House Progressive que fusiona la energía de la pista de baile con un mensaje de adoración. Con la colaboración vocal de Solaria, la canción combina drops electrónicos y una atmósfera envolvente con una letra centrada en la alabanza, consolidando a Erbin Bass como pionero de la música electrónica cristiana en Ecuador.</p>
+      <div class="fact-strip">
+        <span class="fact">Autor: Diego Espinoza</span>
+        <span class="fact">Compositor: Antonio Pastor</span>
+        <span class="fact">Voz feat.: Solaria</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="bio">
   <div class="wrap">
     <div class="bio">
@@ -385,10 +422,7 @@
         <div class="section-head">
           <h2>Quién es Erbin Bass</h2>
         </div>
-        <p>Erbin David Basantes, conocido como Erbin Bass, es un personaje multifacético: alabante, artista y productor independiente, pionero de la música electrónica cristiana local como DJ cristiano.</p>
-        <p>Además de músico es ingeniero comercial, y aplica ese conocimiento empresarial a la música: ha brindado consultoría a artistas, productoras y sellos discográficos que buscan innovar en sus modelos de negocio.</p>
-        <p>Como autor y compositor registrado en la Sociedad de Autores y Compositores (SAYCE), ha construido un repertorio de canciones para distintos artistas. Su enfoque principal está en la música cristiana, aunque también ha colaborado en proyectos comerciales seculares.</p>
-        <p>Es miembro activo de la Iglesia Verbo Mañosca, en Quito, Ecuador. Su fe es un pilar fundamental en su vida, y su compromiso con la alabanza y la adoración se refleja en cada nota y letra que crea.</p>
+        <p>Erbin David Basantes, conocido como Erbin Bass, es alabante, artista y productor independiente, pionero de la música electrónica cristiana como DJ cristiano. Es también ingeniero comercial y ha brindado consultoría a artistas y sellos discográficos, además de ser autor y compositor registrado en SAYCE con un repertorio para distintos artistas. Aunque su enfoque principal es la música cristiana, también ha colaborado en proyectos seculares. Es miembro activo de la Iglesia Verbo Mañosca en Quito, Ecuador, y su fe es un pilar fundamental que se refleja en cada nota y letra que crea.</p>
 
         <div class="fact-strip">
           <span class="fact">Quito, Ecuador</span>
@@ -407,35 +441,35 @@
       <h2>Escucha Eres Grandioso</h2>
     </div>
 
-    <div class="listen-row">
+    <a class="listen-row" href="https://offstep.link/178222224431" target="_blank" rel="noopener">
       <div class="listen-label">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9.2"/><path d="M9.2 8.6v6.8l5.8-3.4z" fill="currentColor" stroke="none"/></svg>
         <span>Pre-guarda en Spotify, Apple Music, Deezer y Tidal
           <span class="listen-sub">Un solo link, disponible desde ya</span>
         </span>
       </div>
-      <a class="link-arrow" href="https://offstep.link/178222224431" target="_blank" rel="noopener">Ir al link</a>
-    </div>
+      <svg class="listen-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
+    </a>
 
-    <div class="listen-row">
+    <a class="listen-row" href="https://open.spotify.com/intl-es/artist/5PaApM67EWQ3nBttiD7lWy?si=Hh52HOo5RsW8J3MN5Y0HYA" target="_blank" rel="noopener">
       <div class="listen-label">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9.2"/><path d="M8 9.5c2.6-1 5.4-1 8 .2M8.6 12.4c2-.8 4.3-.8 6.4.1M9.3 15c1.4-.5 2.9-.5 4.2.1"/></svg>
         <span>Sigue a Erbin Bass en Spotify
           <span class="listen-sub">No te pierdas los próximos lanzamientos</span>
         </span>
       </div>
-      <a class="link-arrow" href="https://open.spotify.com/intl-es/artist/5PaApM67EWQ3nBttiD7lWy?si=Hh52HOo5RsW8J3MN5Y0HYA" target="_blank" rel="noopener">Ver perfil</a>
-    </div>
+      <svg class="listen-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
+    </a>
 
-    <div class="listen-row">
+    <a class="listen-row" href="https://www.youtube.com/@ErbinBass" target="_blank" rel="noopener">
       <div class="listen-label">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M10.5 9.5l4.5 2.5-4.5 2.5z" fill="currentColor" stroke="none"/></svg>
         <span>Video y sesiones en YouTube
           <span class="listen-sub">Sets, visuales y detrás de cámaras</span>
         </span>
       </div>
-      <a class="link-arrow" href="https://www.youtube.com/@ErbinBass" target="_blank" rel="noopener">Ir al canal</a>
-    </div>
+      <svg class="listen-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
+    </a>
   </div>
 </section>
 
@@ -445,20 +479,20 @@
       <h2>Conecta con Erbin Bass</h2>
     </div>
 
-    <div class="connect-grid">
-      <a class="connect-card" href="https://www.instagram.com/erbinbass/" target="_blank" rel="noopener">
+    <div class="connect-list">
+      <a class="connect-item" href="https://www.instagram.com/erbinbass/" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.7" cy="7.3" r="0.9" fill="currentColor" stroke="none"/></svg>
         <span>Instagram</span>
       </a>
-      <a class="connect-card" href="https://www.facebook.com/ErbinBass?locale=es_LA" target="_blank" rel="noopener">
+      <a class="connect-item" href="https://www.facebook.com/ErbinBass?locale=es_LA" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M13.6 20v-6.2h2.1l.3-2.5h-2.4V9.6c0-.7.2-1.2 1.3-1.2h1.3V6.1c-.2 0-1-.1-1.9-.1-1.9 0-3.2 1.2-3.2 3.3v1.9H9v2.5h2.1V20"/></svg>
         <span>Facebook</span>
       </a>
-      <a class="connect-card" href="https://www.youtube.com/@ErbinBass" target="_blank" rel="noopener">
+      <a class="connect-item" href="https://www.youtube.com/@ErbinBass" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M10.5 9.5l4.5 2.5-4.5 2.5z" fill="currentColor" stroke="none"/></svg>
         <span>YouTube</span>
       </a>
-      <a class="connect-card" href="https://open.spotify.com/intl-es/artist/5PaApM67EWQ3nBttiD7lWy?si=Hh52HOo5RsW8J3MN5Y0HYA" target="_blank" rel="noopener">
+      <a class="connect-item" href="https://open.spotify.com/intl-es/artist/5PaApM67EWQ3nBttiD7lWy?si=Hh52HOo5RsW8J3MN5Y0HYA" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9.2"/><path d="M8 9.5c2.6-1 5.4-1 8 .2M8.6 12.4c2-.8 4.3-.8 6.4.1M9.3 15c1.4-.5 2.9-.5 4.2.1"/></svg>
         <span>Spotify</span>
       </a>
