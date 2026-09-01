@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eres Grandioso — Erbin Bass ft. Solaria</title>
+<meta name="description" content="Eres Grandioso, el nuevo estreno de Erbin Bass ft. Solaria. Electro House Progressive.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#071C2B;
+    --bg-panel:#0C2635;
+    --bg-panel-2:#0F2E3F;
+    --line:#1D4256;
+    --cyan:#5FE8E0;
+    --cyan-soft:#9FF2EC;
+    --white:#F4F7F5;
+    --white-dim:#AFC4C7;
+    --ember:#FF7A4D;
+    --ff-display:'Bebas Neue', sans-serif;
+    --ff-body:'Manrope', sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--bg-deep);
+    color:var(--white);
+    font-family:var(--ff-body);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  a{color:inherit;}
+
+  img{display:block;max-width:100%;}
+
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- Background glow (signature element) ---------- */
+  .glow-field{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    background:
+      radial-gradient(560px 420px at 12% -6%, rgba(95,232,224,0.16), transparent 60%),
+      radial-gradient(680px 520px at 108% 18%, rgba(255,122,77,0.08), transparent 55%),
+      radial-gradient(900px 700px at 50% 108%, rgba(95,232,224,0.10), transparent 60%);
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    padding-top:56px;
+  }
+
+  .hero-frame{
+    position:relative;
+    max-width:640px;
+    margin:0 auto;
+    border-radius:4px;
+    overflow:hidden;
+    box-shadow:0 40px 100px -30px rgba(0,0,0,0.7);
+  }
+
+  .hero-frame img{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+  }
+
+  .hero-frame::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(7,28,43,0) 45%, rgba(7,28,43,0.92) 100%);
+  }
+
+  .hero-text{
+    text-align:center;
+    padding:36px 0 8px;
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:0.8rem;
+    letter-spacing:0.02em;
+    color:var(--cyan-soft);
+    margin-bottom:14px;
+  }
+
+  .eyebrow::before{
+    content:"";
+    width:6px;height:6px;border-radius:50%;
+    background:var(--cyan);
+    box-shadow:0 0 10px 2px rgba(95,232,224,0.7);
+  }
+
+  .hero-title{
+    font-family:var(--ff-display);
+    font-weight:400;
+    font-size:clamp(3rem, 10vw, 5.4rem);
+    line-height:0.92;
+    letter-spacing:0.02em;
+    text-transform:uppercase;
+    color:var(--white);
+    text-shadow:0 0 30px rgba(95,232,224,0.25);
+  }
+
+  .hero-feat{
+    margin-top:14px;
+    font-family:var(--ff-display);
+    font-weight:400;
+    font-size:clamp(1.3rem, 3.6vw, 1.7rem);
+    color:var(--cyan-soft);
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+  }
+
+  .hero-meta{
+    margin-top:18px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px 18px;
+    font-size:0.92rem;
+    color:var(--white-dim);
+  }
+
+  .hero-meta span{white-space:nowrap;}
+
+  .hero-cta{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:32px;
+    padding-bottom:56px;
+  }
+
+  .btn{
+    font-family:var(--ff-body);
+    font-weight:700;
+    font-size:0.95rem;
+    padding:15px 30px;
+    border-radius:2px;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .btn-primary{
+    background:var(--cyan);
+    color:#04161F;
+    box-shadow:0 0 0 rgba(95,232,224,0);
+  }
+
+  .btn-primary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 30px -8px rgba(95,232,224,0.55);
+  }
+
+  .btn-ghost{
+    border:1px solid var(--line);
+    color:var(--white);
+    background:rgba(255,255,255,0.02);
+  }
+
+  .btn-ghost:hover{
+    border-color:var(--cyan);
+    color:var(--cyan-soft);
+  }
+
+  /* ---------- Section shell ---------- */
+  section{
+    padding:68px 0;
+    border-top:1px solid var(--line);
+  }
+
+  .section-head{
+    margin-bottom:36px;
+  }
+
+  .section-head h2{
+    font-family:var(--ff-display);
+    font-weight:400;
+    font-size:clamp(1.9rem, 4.5vw, 2.5rem);
+    letter-spacing:0.02em;
+    text-transform:uppercase;
+    max-width:20ch;
+  }
+
+  /* ---------- Bio ---------- */
+  .bio{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:48px;
+    align-items:start;
+  }
+
+  .bio-photo{
+    position:relative;
+    border-radius:4px;
+    overflow:hidden;
+    border:1px solid var(--line);
+  }
+
+  .bio-photo img{width:100%;height:100%;object-fit:cover;}
+
+  .bio-copy p{
+    color:var(--white-dim);
+    font-size:1rem;
+    max-width:62ch;
+    margin-bottom:18px;
+  }
+
+  .bio-copy p:last-child{margin-bottom:0;}
+
+  .fact-strip{
+    margin-top:28px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  .fact{
+    font-size:0.82rem;
+    color:var(--cyan-soft);
+    border:1px solid var(--line);
+    padding:7px 14px;
+    border-radius:2px;
+    background:rgba(95,232,224,0.04);
+  }
+
+  /* ---------- Listen ---------- */
+  .listen-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:24px;
+    padding:26px 0;
+    border-bottom:1px solid var(--line);
+  }
+
+  .listen-row:last-child{border-bottom:none;}
+
+  .listen-label{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    font-family:var(--ff-display);
+    font-weight:400;
+    font-size:1.2rem;
+    letter-spacing:0.015em;
+    text-transform:uppercase;
+  }
+
+  .listen-label svg{width:22px;height:22px;flex-shrink:0;color:var(--cyan);}
+
+  .listen-sub{
+    color:var(--white-dim);
+    font-size:0.88rem;
+    font-family:var(--ff-body);
+    font-weight:400;
+    display:block;
+    margin-top:2px;
+  }
+
+  .link-arrow{
+    font-size:0.88rem;
+    font-weight:700;
+    color:var(--cyan-soft);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+  }
+
+  .link-arrow:hover{border-color:var(--cyan-soft);}
+
+  /* ---------- Connect ---------- */
+  .connect-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:14px;
+  }
+
+  .connect-card{
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:22px 16px;
+    text-decoration:none;
+    text-align:center;
+    transition:border-color 0.15s ease, background 0.15s ease;
+  }
+
+  .connect-card:hover{
+    border-color:var(--cyan);
+    background:rgba(95,232,224,0.04);
+  }
+
+  .connect-card svg{width:24px;height:24px;margin:0 auto 10px;color:var(--white);}
+
+  .connect-card span{font-size:0.85rem;font-weight:600;}
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:40px 0 56px;
+    text-align:center;
+    color:var(--white-dim);
+    font-size:0.82rem;
+  }
+
+  footer .wordmark{
+    font-family:var(--ff-display);
+    font-weight:400;
+    color:var(--white);
+    letter-spacing:0.06em;
+    margin-bottom:8px;
+    font-size:1.1rem;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:760px){
+    .bio{grid-template-columns:1fr;}
+    .bio-photo{max-height:340px;}
+    .connect-grid{grid-template-columns:repeat(2, 1fr);}
+    .listen-row{flex-direction:column;align-items:flex-start;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .btn{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="glow-field"></div>
+
+<header class="hero">
+  <div class="hero-frame">
+    <img src="assets/cover.jpg" alt="Portada de Eres Grandioso — Erbin Bass ft. Solaria">
+  </div>
+
+  <div class="wrap hero-text">
+    <p class="eyebrow">Nuevo estreno</p>
+    <h1 class="hero-title">Eres Grandioso</h1>
+    <p class="hero-feat">Erbin Bass ft. Solaria</p>
+    <div class="hero-meta">
+      <span>Electro House Progressive</span>
+      <span>Viernes 4 de septiembre de 2026 · 19:00</span>
+    </div>
+
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://offstep.link/178222224431" target="_blank" rel="noopener">
+        Pre-guardar el track
+      </a>
+      <a class="btn btn-ghost" href="https://open.spotify.com/intl-es/artist/5PaApM67EWQ3nBttiD7lWy?si=Hh52HOo5RsW8J3MN5Y0HYA" target="_blank" rel="noopener">
+        Seguir en Spotify
+      </a>
+    </div>
+  </div>
+</header>
+
+<section id="bio">
+  <div class="wrap">
+    <div class="bio">
+      <div class="bio-photo">
+        <img src="assets/artist.jpg" alt="Erbin Bass en sesión de DJ">
+      </div>
+      <div class="bio-copy">
+        <div class="section-head">
+          <h2>Quién es Erbin Bass</h2>
+        </div>
+        <p>Erbin David Basantes, conocido como Erbin Bass, es un personaje multifacético: alabante, artista y productor independiente, pionero de la música electrónica cristiana local como DJ cristiano.</p>
+        <p>Además de músico es ingeniero comercial, y aplica ese conocimiento empresarial a la música: ha brindado consultoría a artistas, productoras y sellos discográficos que buscan innovar en sus modelos de negocio.</p>
+        <p>Como autor y compositor registrado en la Sociedad de Autores y Compositores (SAYCE), ha construido un repertorio de canciones para distintos artistas. Su enfoque principal está en la música cristiana, aunque también ha colaborado en proyectos comerciales seculares.</p>
+        <p>Es miembro activo de la Iglesia Verbo Mañosca, en Quito, Ecuador. Su fe es un pilar fundamental en su vida, y su compromiso con la alabanza y la adoración se refleja en cada nota y letra que crea.</p>
+
+        <div class="fact-strip">
+          <span class="fact">Quito, Ecuador</span>
+          <span class="fact">Autor registrado SAYCE</span>
+          <span class="fact">Ingeniero Comercial</span>
+          <span class="fact">DJ cristiano pionero</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="listen">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Escucha Eres Grandioso</h2>
+    </div>
+
+    <div class="listen-row">
+      <div class="listen-label">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9.2"/><path d="M9.2 8.6v6.8l5.8-3.4z" fill="currentColor" stroke="none"/></svg>
+        <span>Pre-guarda en Spotify, Apple Music, Deezer y Tidal
+          <span class="listen-sub">Un solo link, disponible desde ya</span>
+        </span>
+      </div>
+      <a class="link-arrow" href="https://offstep.link/178222224431" target="_blank" rel="noopener">Ir al link</a>
+    </div>
+
+    <div class="listen-row">
+      <div class="listen-label">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9.2"/><path d="M8 9.5c2.6-1 5.4-1 8 .2M8.6 12.4c2-.8 4.3-.8 6.4.1M9.3 15c1.4-.5 2.9-.5 4.2.1"/></svg>
+        <span>Sigue a Erbin Bass en Spotify
+          <span class="listen-sub">No te pierdas los próximos lanzamientos</span>
+        </span>
+      </div>
+      <a class="link-arrow" href="https://open.spotify.com/intl-es/artist/5PaApM67EWQ3nBttiD7lWy?si=Hh52HOo5RsW8J3MN5Y0HYA" target="_blank" rel="noopener">Ver perfil</a>
+    </div>
+
+    <div class="listen-row">
+      <div class="listen-label">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M10.5 9.5l4.5 2.5-4.5 2.5z" fill="currentColor" stroke="none"/></svg>
+        <span>Video y sesiones en YouTube
+          <span class="listen-sub">Sets, visuales y detrás de cámaras</span>
+        </span>
+      </div>
+      <a class="link-arrow" href="https://www.youtube.com/@ErbinBass" target="_blank" rel="noopener">Ir al canal</a>
+    </div>
+  </div>
+</section>
+
+<section id="connect">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Conecta con Erbin Bass</h2>
+    </div>
+
+    <div class="connect-grid">
+      <a class="connect-card" href="https://www.instagram.com/erbinbass/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.7" cy="7.3" r="0.9" fill="currentColor" stroke="none"/></svg>
+        <span>Instagram</span>
+      </a>
+      <a class="connect-card" href="https://www.facebook.com/ErbinBass?locale=es_LA" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M13.6 20v-6.2h2.1l.3-2.5h-2.4V9.6c0-.7.2-1.2 1.3-1.2h1.3V6.1c-.2 0-1-.1-1.9-.1-1.9 0-3.2 1.2-3.2 3.3v1.9H9v2.5h2.1V20"/></svg>
+        <span>Facebook</span>
+      </a>
+      <a class="connect-card" href="https://www.youtube.com/@ErbinBass" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M10.5 9.5l4.5 2.5-4.5 2.5z" fill="currentColor" stroke="none"/></svg>
+        <span>YouTube</span>
+      </a>
+      <a class="connect-card" href="https://open.spotify.com/intl-es/artist/5PaApM67EWQ3nBttiD7lWy?si=Hh52HOo5RsW8J3MN5Y0HYA" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9.2"/><path d="M8 9.5c2.6-1 5.4-1 8 .2M8.6 12.4c2-.8 4.3-.8 6.4.1M9.3 15c1.4-.5 2.9-.5 4.2.1"/></svg>
+        <span>Spotify</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="wordmark">ERBIN BASS</p>
+    <p>Eres Grandioso — ft. Solaria · Electro House Progressive</p>
+  </div>
+</footer>
+
+</body>
+</html>
